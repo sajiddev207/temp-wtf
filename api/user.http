@@ -1,0 +1,43 @@
+@PORT = http://localhost:8080/api/user
+@TOKEN =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTMxMDUyMTAxN2RmMTQ5MjE5MGY4N2UiLCJ1c2VyVHlwZSI6Ik1BTkFHRVIiLCJpYXQiOjE2OTc3MTEzOTQsImV4cCI6MTcwMDMwMzM5NH0.vSCMsZPVmhOu3GGiMQof5vt6udul7JQ09a_pe05DUbk
+
+### User Register
+POST {{PORT}}/userRegister
+Content-Type: application/json
+
+{
+    "email":"testjarvis02@mailinator.com",
+    "password":"123456",
+    "confirmPassword":"123456",
+    "userType":"MANAGER"
+}
+
+### Validate Otp
+POST {{PORT}}/validateOtp
+Content-Type: application/json
+
+{
+    "token":"jiKIGbDurGHENctAd0noTioYJWCYV3aWrPCuKzHT",
+    "otp":"7436"
+}
+
+### User Login
+POST {{PORT}}/userLogin
+Content-Type: application/json
+
+{
+    "email":"testjarvis01@mailinator.com",
+    "password":"123456",
+    "userType":"ADMIN"
+}
+
+### Fetch product
+POST {{PORT}}/getProductList
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+    "category":"fruits",
+    "page":1,
+    "size":2
+}

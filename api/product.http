@@ -1,0 +1,44 @@
+@PORT = http://localhost:8080/api/product
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTMxMDRlNjAxN2RmMTQ5MjE5MGY4N2IiLCJ1c2VyVHlwZSI6IkFETUlOIiwiaWF0IjoxNjk3NzExMzM2LCJleHAiOjE3MDAzMDMzMzZ9.84svVlT-3jTTwvDEcvaw90_Dgm_ozQAEMoDBvyR7k3U
+
+### Add product
+POST {{PORT}}/addProduct
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+    "name":"kiwi",
+    "category":"fruits",
+    "price":30,
+    "quantity":10
+}
+
+### Update product
+PUT {{PORT}}/updateProduct
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+    "id":"6530ffdd7faedb45989a58be",
+    "name":"kiwi",
+    "category":"fruits",
+    "price":35,
+    "quantity":15
+}
+
+### Delete product
+DELETE {{PORT}}/deleteProduct/651fc8952317d14eb9ffaec2
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+
+### Fetch product
+POST {{PORT}}/getFilteredProductList
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+    "category":"fruits",
+    "page":1,
+    "size":2
+}
